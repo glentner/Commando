@@ -29,9 +29,6 @@ public:
         std::string name, value, description, abbrv;
         bool given {false};
 
-        // container for the initializer_list
-        std::vector<std::string> init;
-
         Argument(){}
         Argument(const std::string& name, const std::string& value,
                 const std::string& description, const std::string& abbrv = "")
