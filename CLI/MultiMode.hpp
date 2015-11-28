@@ -1,9 +1,9 @@
 /*
  *  Copyright (c) Geoffrey Lentner 2015. All Rights Reserved.
  *  GNU General Public License v3.0, see LICENSE file.
- *  CLI//Application.hpp
+ *  CLI/MultiMode.hpp
  *
- *   A MultiMode application has a single `exe`cutable function.
+ *   A MultiMode application manages several SingleMode applications.
  *   TODO: MultiMode docs
  *
  */

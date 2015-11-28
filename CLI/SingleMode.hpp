@@ -1,9 +1,9 @@
 /*
  *  Copyright (c) Geoffrey Lentner 2015. All Rights Reserved.
  *  GNU General Public License v3.0, see LICENSE file.
- *  CLI//Application.hpp
+ *  CLI/SingleMode.hpp
  *
- *   A SingleMode application has a single `exe`cutable function.
+ *   A SingleMode application represents a single executable.
  *   TODO: SingleMode docs
  *
  */

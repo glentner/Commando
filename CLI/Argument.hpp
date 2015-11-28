@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) Geoffrey Lentner 2015. All Rights Reserved.
  *  GNU General Public License v3.0, see LICENSE file.
- *  CLI//Argument.hpp
+ *  CLI/Argument.hpp
  *
  *  An Argument is the base class to the derived types:
  *  Required, Default, Switch, Flag, and List.

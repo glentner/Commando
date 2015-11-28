@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) Geoffrey Lentner 2015. All Rights Reserved.
  *  GNU General Public License v3.0, see LICENSE file.
- *  CLI//ArgMap.hpp
+ *  CLI/ArgManager.hpp
  *
  *  The ArgManager wraps a std::map with std::string values
  *  for names of parameters to keys of type Argument* .

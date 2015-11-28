@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) Geoffrey Lentner 2015. All Rights Reserved.
  *  GNU General Public License v3.0, see LICENSE file.
- *  CLI//Exceptions.hpp
+ *  CLI/Exceptions.hpp
  *
  *   Exceptions provided by CLI framework.
  *   TODO: Exceptions docs
