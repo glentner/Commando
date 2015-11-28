@@ -5,11 +5,11 @@
 
 SHELL := /bin/sh
 
-ifndef CC
-	export CC:=g++
+ifndef CXX
+	export CXX:=g++
 endif
 
-CCFlags  := -std=c++11
+CFlags  := -std=c++11
 archive  := libCLI.a
 inc      := CLI/
 lib      := lib/
@@ -30,6 +30,7 @@ examples      := $(addprefix examples/, $(example_names))
 
 
 all: $(archive) $(examples)
+	@echo `$(CXX) --version`
 
 
 $(archive): $(objects)
@@ -38,12 +39,12 @@ $(archive): $(objects)
 
 
 $(lib)%.o: $(lib)%.cpp $(inc)%.hpp
-	$(CC) -c $< -o $@ $(IFlags) $(CXXFlags)
+	$(CXX) -c $< -o $@ $(IFlags) $(CFlags)
 
 
 examples/%: examples/%.cpp $(headers)
-	$(CC) -o $@.o -c $< $(IFlags) $(CCFlags)
-	$(CC) -o $@.exe $@.o $(LFlags) $(CCFlags)
+	$(CXX) -o $@.o -c $< $(IFlags) $(CFlags)
+	$(CXX) -o $@.exe $@.o $(LFlags) $(CFlags)
 
 
 .PHONY: clean
