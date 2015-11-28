@@ -3,9 +3,13 @@
 # CLI/Makefile
 #
 
-CC       := g++
-CCFlags  := -std=c++11
+SHELL := /bin/sh
 
+ifndef CC
+	export CC:=g++
+endif
+
+CCFlags  := -std=c++11
 archive  := libCLI.a
 inc      := CLI/
 lib      := lib/
@@ -34,7 +38,7 @@ $(archive): $(objects)
 
 
 $(lib)%.o: $(lib)%.cpp $(inc)%.hpp
-	$(CC) -c $< -o $@ $(IFlags) $(CCFlags)
+	$(CC) -c $< -o $@ $(IFlags) $(CXXFlags)
 
 
 examples/%: examples/%.cpp $(headers)
