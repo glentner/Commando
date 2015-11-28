@@ -3,7 +3,7 @@
 # CLI/Makefile
 #
 
-CC       := clang++
+CC       := g++
 CCFlags  := -std=c++11
 
 archive  := libCLI.a
