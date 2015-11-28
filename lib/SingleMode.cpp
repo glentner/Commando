@@ -1,7 +1,7 @@
 /*
  *  Copyright (c) Geoffrey Lentner 2015. All Rights Reserved.
  *  GNU General Public License v3.0, see LICENSE file.
- *  CLI//Application.hpp
+ *  lib/SingleMode.cpp
  *
  *   A SingleMode application has a single `exe`cutable function.
  *   TODO: SingleMode docs
@@ -15,19 +15,19 @@
 #include <vector>
 #include <algorithm>
 
-#include "../CLI/SingleMode.hpp"
-#include "../CLI/Argument.hpp"
-#include "../CLI/Terminator.hpp"
-#include "../CLI/Flag.hpp"
-#include "../CLI/Default.hpp"
-#include "../CLI/Required.hpp"
-#include "../CLI/Switch.hpp"
-#include "../CLI/List.hpp"
+#include "CLI/SingleMode.hpp"
+#include "CLI/Argument.hpp"
+#include "CLI/Terminator.hpp"
+#include "CLI/Flag.hpp"
+#include "CLI/Default.hpp"
+#include "CLI/Required.hpp"
+#include "CLI/Switch.hpp"
+#include "CLI/List.hpp"
 
-#include "../CLI/IO.hpp"
-#include "../CLI/Utilities.hpp"
-#include "../CLI/Exceptions.hpp"
-#include "../CLI/ArgManager.hpp"
+#include "CLI/IO.hpp"
+#include "CLI/Utilities.hpp"
+#include "CLI/Exceptions.hpp"
+#include "CLI/ArgManager.hpp"
 
 
 namespace CLI {

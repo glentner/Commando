@@ -30,7 +30,7 @@ examples      := $(addprefix examples/, $(example_names))
 
 
 all: $(archive) $(examples)
-	@echo `$(CXX) --version`
+
 
 
 $(archive): $(objects)

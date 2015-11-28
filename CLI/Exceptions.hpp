@@ -37,6 +37,13 @@ public:
 
         virtual const char* what() const throw(){ return __stream.str().c_str(); }
 
+        // FIXME: for g++-4.8 under Ubuntu somewhere it is complaining that we wanted
+        // to stream << arg0 with [arg0 = CLI::Exception]. I don't get it.
+        friend std::ostream& operator << (std::ostream& stream, const Exception& e)
+        {
+                return stream << e.what();
+        }
+
 protected:
 
         std::stringstream __stream;
