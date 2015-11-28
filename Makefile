@@ -51,3 +51,9 @@ clean:
 veryclean: clean
 	rm -rf $(addsuffix .o, $(examples))
 	rm -rf $(addsuffix .exe, $(examples))
+
+
+# test run for TravisCI
+.PHONY: test
+test:
+	@./examples/hello.exe "" || exit 1
