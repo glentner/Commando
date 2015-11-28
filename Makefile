@@ -19,7 +19,7 @@ LFlags   := -I. -L$(lib) -lCLI
 object_names := SingleMode.o MultiMode.o
 objects      := $(addprefix $(lib), $(object_names))
 
-deps := Argument Required Default Switch Flag List \
+deps := Argument Required Default Switch Flag List Terminator\
 	IO Exceptions Utilities ArgManager \
 	SingleMode MultiMode
 
