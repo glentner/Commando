@@ -1,2 +1,5 @@
-# CLI
-Command Line Interface Framework for C++
+# Command Line Interface
+
+An object oriented command line argument parser and self-documenting framework.
+
+
