@@ -10,6 +10,7 @@ The **CLI** library is a small (and still developing) C++ toolkit for managing t
 command line arguments. Further, it automatically constructs the appropriate *usage* statement
 given the arguments defined in your code.
 
+
 ##TL;DR
 
 Instead of executing the top level portion of your code from *main*, derive an *application class*
