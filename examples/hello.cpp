@@ -13,29 +13,32 @@
 class Hello: public CLI::SingleMode {
 public:
 
-	CLI::List   users    {"user", "user names"};
-	CLI::Switch verbose  {"verbose", "1", "show greeting message", "v"};
-	CLI::Switch computer {"computer", "Lisa", "name of the computer", "c"};
-	CLI::Switch message  {"message", "how are you?", "the greeting used", "m"};
-
-	CLI::Terminator version {"version", "show version info",
-		"hello.exe (1.0.1)", "V"};
-
-	CLI::Terminator copyright {"copyright", "show copyright info",
-		"hello.exe (1.0.1)\nCopyright (c) Geoffrey Lentner 2015. All rights reserved."
-		"\nGNU General Public License v3.0\nThis is free software; see the source for"
-		" copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
-		" FITNESS FOR A PARTICULAR PURPOSE.", "C"};
-
 	Hello(const int argc, const char **argv): SingleMode(argc, argv,
 
 		"A simple `Hello, world!` program to showcase the CLI::SingleMode framework.\n"
 		"  Give the -h, --help flag for more information."
 	){
-		Register(&users, &verbose, &computer, &message, &version, &copyright);
+		Register(&__users, &__verbose, &__computer, &__message, &__version, &__copyright);
 	}
 
 	virtual int main();
+
+private:
+
+	CLI::List   __users    {"user", "user names"};
+
+	CLI::Switch __verbose  {"verbose",  "1",            "show greeting message", "v"};
+	CLI::Switch __computer {"computer", "Lisa",         "name of the computer",  "c"};
+	CLI::Switch __message  {"message",  "how are you?", "the greeting used",     "m"};
+
+	CLI::Terminator __version {"version", "show version info",
+		"hello.exe (1.0.1)", "V"};
+
+	CLI::Terminator __copyright {"copyright", "show copyright info",
+		"hello.exe (1.0.1)\nCopyright (c) Geoffrey Lentner 2015. All rights reserved."
+		"\nGNU General Public License v3.0\nThis is free software; see the source for"
+		" copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or"
+		" FITNESS FOR A PARTICULAR PURPOSE.", "C"};
 };
 
 int Hello::main()
@@ -44,7 +47,10 @@ int Hello::main()
 	auto verbose  = ArgV.get<bool>("verbose");
 	auto computer = ArgV.get<std::string>("computer");
 	auto message  = ArgV.get<std::string>("message");
-	auto users    = ArgV.get_arg<CLI::List>("user").value;
+	auto users    = ArgV.get<std::vector<std::string>, CLI::List>("user");
+
+	// std::vector<std::string> users = ArgV.get<CLI::List>("users");
+	// auto users    = ArgV.get_arg<CLI::List>("user").value;
 
 	if (verbose)
 	{

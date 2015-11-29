@@ -95,7 +95,6 @@ inline Argument::operator const char*()
 	return value.c_str();
 }
 
-
 } // namespace CLI
 
 #endif

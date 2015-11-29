@@ -3,10 +3,10 @@
  *  GNU General Public License v3.0, see LICENSE file.
  *  CLI/ArgManager.hpp
  *
- *  The ArgManager wraps a std::map with std::string values
- *  for names of parameters to keys of type Argument* .
+ *  The ArgManager wraps a std::map, `data`, of std::string keys to Argument*
+ *  values. It is made available to the users' derived application classes
+ *  as `ArgV`.
  *
- *   TODO: ArgManager docs
  */
 
 
@@ -32,18 +32,13 @@ public:
 
         ArgMap data;
 
-public:
-
         ArgManager(){}
         ~ArgManager(){}
 
         void insert(Argument*);
 
-        template<typename ValueType>
-        ValueType get(const std::string&);
-
-        template<typename ArgType>
-        ArgType get_arg(const std::string& key);
+        template<typename ReturnType, typename ArgType = Argument>
+        inline ReturnType get(const std::string&);
 
 	std::size_t size() const;
         ArgMap::iterator begin();
@@ -62,11 +57,11 @@ inline void ArgManager::insert(Argument *arg)
 
 
 
-template<typename ValueType>
-inline ValueType ArgManager::get(const std::string& key)
+template<typename ReturnType, typename ArgType>
+inline ReturnType ArgManager::get(const std::string& key)
 {
         try {
-		ValueType value = *data.at(key);
+		ReturnType value = *static_cast<ArgType*>(data.at(key));
                 return value;
 
         } catch (const std::out_of_range& error) {
@@ -77,11 +72,6 @@ inline ValueType ArgManager::get(const std::string& key)
 
 }
 
-template<typename ArgType>
-inline ArgType ArgManager::get_arg(const std::string& key)
-{
-        return *static_cast<ArgType*>(data.at(key));
-}
 
 
 inline std::size_t ArgManager::size() const

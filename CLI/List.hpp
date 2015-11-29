@@ -30,8 +30,12 @@ public:
                 {}
 
         virtual std::string GetHelp(const int& width);
-};
 
+        // conversion to other containers
+        template<typename ValueType>
+        operator std::vector<ValueType>();
+
+};
 
 
 
@@ -45,6 +49,12 @@ inline std::string List::GetHelp(const int& width)
         return message.str();
 }
 
+
+template<typename ValueType>
+inline List::operator std::vector<ValueType>()
+{
+        return std::vector<ValueType>(value.begin(), value.end());
+}
 
 
 
