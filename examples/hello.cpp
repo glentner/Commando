@@ -49,9 +49,6 @@ int Hello::main()
 	auto message  = ArgV.get<std::string>("message");
 	auto users    = ArgV.get<std::vector<std::string>, CLI::List>("user");
 
-	// std::vector<std::string> users = ArgV.get<CLI::List>("users");
-	// auto users    = ArgV.get_arg<CLI::List>("user").value;
-
 	if (verbose)
 	{
 		std::cout << "Incoming message from '" << computer << "': 'Greetings";
