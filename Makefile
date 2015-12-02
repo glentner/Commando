@@ -42,7 +42,7 @@ $(lib)%.o: $(lib)%.cpp $(inc)%.hpp
 	$(CXX) -c $< -o $@ $(IFlags) $(CFlags)
 
 
-%.exe: %.cpp
+%.exe: %.cpp $(objects)
 	$(CXX) -o $@ $< $(LFlags) $(CFlags)
 
 
