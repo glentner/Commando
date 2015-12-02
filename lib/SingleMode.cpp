@@ -327,6 +327,7 @@ void SingleMode::InterpretLongForm(const int& idx, const std::string& option)
                         if (flag -> given)
                         throw Error("The `", option, "` flag was already given!");
 
+                        flag -> value = "1";
                         flag -> given = true;
                         return;
                 }
