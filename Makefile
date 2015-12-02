@@ -9,7 +9,7 @@ ifndef CXX
 	export CXX:=g++
 endif
 
-CFlags  := -std=c++11
+CFlags   := -std=c++11
 archive  := libCLI.a
 inc      := CLI/
 lib      := lib/
@@ -25,7 +25,7 @@ deps := Argument Required Default Switch Flag List Terminator\
 
 headers := $(addprefix $(inc), $(addsuffix .hpp, $(deps)))
 
-example_names := hello calc
+example_names := hello.exe calc.exe
 examples      := $(addprefix examples/, $(example_names))
 
 
@@ -42,9 +42,8 @@ $(lib)%.o: $(lib)%.cpp $(inc)%.hpp
 	$(CXX) -c $< -o $@ $(IFlags) $(CFlags)
 
 
-examples/%: examples/%.cpp $(headers)
-	$(CXX) -o $@.o -c $< $(IFlags) $(CFlags)
-	$(CXX) -o $@.exe $@.o $(LFlags) $(CFlags)
+%.exe: %.cpp
+	$(CXX) -o $@ $< $(LFlags) $(CFlags)
 
 
 .PHONY: clean
@@ -54,8 +53,7 @@ clean:
 
 .PHONY: veryclean
 veryclean: clean
-	rm -rf $(addsuffix .o, $(examples))
-	rm -rf $(addsuffix .exe, $(examples))
+	rm -rf $(examples)
 
 
 # test run for TravisCI
