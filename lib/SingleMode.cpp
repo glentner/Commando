@@ -259,14 +259,19 @@ void SingleMode::InterpretShortForm(const int& idx, const std::string& option)
         if (option.length() > 1) {
 
                 // only permitted to stack for flag
-                for (auto ch: option) if (not SetFlag(&ch))
-                throw Error("-", ch, " does not name a flag!");
+                for (int i = 0; i < option.length(); i++) if (not SetFlag(option.substr(i, i+1)))
+                        throw Error("`", option[i], "` does not name a flag!");
 
-        } else if (SetFlag(option)) return;
 
-        // we better find a switch then
-        if (not SetSwitch(idx, option))
-        throw Error("-", option, " does not name a flag or switch!");
+        } else if (SetFlag(option)) {
+                return;
+
+        } else {
+
+                // we better find a switch then
+                if (not SetSwitch(idx, option))
+                throw Error("-", option, " does not name a flag or switch!!");
+        }
 }
 
 
