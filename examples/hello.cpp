@@ -27,7 +27,7 @@ private:
 
 	CLI::List   __users    {"user", "user names"};
 
-	CLI::Switch __verbose  {"verbose",  "1",            "show greeting message", "v"};
+	CLI::Flag   __verbose  {"verbose",  "0",            "show greeting message", "v"};
 	CLI::Switch __computer {"computer", "Lisa",         "name of the computer",  "c"};
 	CLI::Switch __message  {"message",  "how are you?", "the greeting used",     "m"};
 
