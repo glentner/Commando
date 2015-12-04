@@ -40,7 +40,7 @@ LFlags   = -L$(CLI_PATH)/lib -lCLI ...
 
 The build process compiles two examples (under the *examples/* directory), one **CLI::SingleMode**
 and one **CLI::MultiMode** application. *hello.exe* is a basic "Hello, world!" style program
-that showcases who to create various styles of arguments. The *calc.exe* program demonstrates
+that showcases how to create various styles of arguments. The *calc.exe* program demonstrates
 the creation of separate **CLI::SingleMode** objects (*add*, *subtract*, ...) and wrapping
 them inside a **CLI::MultiMode** object.
 
