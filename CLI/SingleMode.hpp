@@ -49,8 +49,8 @@ class SingleMode {
 public:
 
         SingleMode();
-        SingleMode(const int argc, const char **argv,
-                const std::string& description);
+        SingleMode(const int argc, const char **argv, const std::string& description,
+                const std::string& contact_information = "");
 
         virtual ~SingleMode();
 
@@ -63,15 +63,16 @@ public:
         // runs RunTimeConfigure() followed by the user's main()
         virtual int Exe(const int& modifier = 0);
 
+protected:
+
         StringVector argv;
         ArgManager   ArgV;
 
         // the name of the executable when called
-        std::string name, description;
+        std::string name, description, contact_information;
 
         // the only default parameter
         Flag help {"help", "0", "show this message", "h"};
-
 
         // used to sort out the command-line arguments
         vector<Terminator*> AllTerminators;
@@ -84,8 +85,6 @@ public:
         // track what is provided on the command line
         std::map<int, Switch*> GivenSwitches;
         std::map<int, std::string> Remainder;
-
-protected:
 
 
         template<typename Arg0, typename... Args>

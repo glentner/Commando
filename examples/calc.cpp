@@ -144,7 +144,10 @@ public:
 
                 "Operate two numbers on each other. Give one of the above subcommands "
                 "with no arguments for their respective usage, or pass the -h, --help flag "
-                "for more information alone or with one of the above subcommands."
+                "for more information alone or with one of the above subcommands.",
+
+                "Report bugs to: glentner@nd.edu\n"
+                "calc.exe home page: <http://github.com/glentner/CLI>"
         ){
                 Commands["add"]      = new Add(argc, argv);
                 Commands["subtract"] = new Subtract(argc, argv);

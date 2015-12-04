@@ -27,10 +27,12 @@ MultiMode::MultiMode()
 
 
 
-MultiMode::MultiMode(const int argc, const char **argv, const std::string& description)
+MultiMode::MultiMode(const int argc, const char **argv, const std::string& description,
+                     const std::string& contact_information)
 {
         this -> name = BaseName(argv[0]);
         this -> description = description;
+        this -> contact_information = contact_information;
         ArgV = StringVector(argv + 1, argv + argc);
 
         Register(&help);
@@ -214,6 +216,9 @@ std::string MultiMode::ShowHelp()
 
         for (const auto& arg: AllTerminators)
                 message << arg -> GetHelp(spacing);
+
+        if (!contact_information.empty())
+                message << "\n" << contact_information << "\n";
 
         return message.str();
 }

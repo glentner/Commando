@@ -33,11 +33,13 @@ class MultiMode {
 public:
 
         MultiMode();
-        MultiMode(const int argc, const char **argv, const std::string& description);
+        MultiMode(const int argc, const char **argv, const std::string& description,
+                  const std::string& contact_information = "");
+                  
         ~MultiMode();
 
 
-        std::string name, description;
+        std::string name, description, contact_information;
         StringVector ArgV;
 
         std::string select;

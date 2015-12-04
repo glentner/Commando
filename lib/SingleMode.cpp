@@ -39,11 +39,12 @@ SingleMode::SingleMode(){}
 
 
 // base constructor
-SingleMode::SingleMode(const int argc, const char **argv,
-        const std::string& description)
-{
+SingleMode::SingleMode(const int argc, const char **argv, const std::string& description,
+        const std::string& contact_information) {
+
         name = BaseName(argv[0]);
         this -> description = description;
+        this -> contact_information = contact_information;
         this -> argv = StringVector(argv + 1, argv + argc);
 
         Register(&help);
@@ -422,6 +423,9 @@ std::string SingleMode::GetHelp(const int& modifier)
 
         for (const auto& arg: AllFlags)
                 message << arg -> GetHelp(spacing);
+
+        if (!contact_information.empty())
+                message << "\n" << contact_information << "\n";
 
         return message.str();
 }
