@@ -142,7 +142,9 @@ public:
 
         Calc(const int argc, const char **argv): MultiMode(argc, argv,
 
-                "Operate two numbers on each other."
+                "Operate two numbers on each other. Give one of the above subcommands "
+                "with no arguments for their respective usage, or pass the -h, --help flag "
+                "for more information alone or with one of the above subcommands."
         ){
                 Commands["add"]      = new Add(argc, argv);
                 Commands["subtract"] = new Subtract(argc, argv);

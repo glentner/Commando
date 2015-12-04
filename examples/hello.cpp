@@ -16,7 +16,7 @@ public:
 	Hello(const int argc, const char **argv): SingleMode(argc, argv,
 
 		"A simple `Hello, world!` program to showcase the CLI::SingleMode framework.\n"
-		"  Give the -h, --help flag for more information."
+		"Give the -h, --help flag for more information."
 	){
 		Register(&__users, &__verbose, &__computer, &__message, &__version, &__copyright);
 	}

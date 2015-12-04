@@ -59,20 +59,24 @@ MultiMode::~MultiMode()
 void MultiMode::RuntimeConfigure()
 {
 
-        if (ArgV.empty()) throw Usage(ShowUsage());
+        if (ArgV.empty()) {
+
+                std::cerr << ShowUsage();
+                throw Usage();
+        }
 
         if (ArgV[0][0] == '-')
                 InterpretFlag(ArgV[0]);
 
         if (help.given)
         {
-                std::cout << ShowHelp() << std::endl;
+                std::cerr << ShowHelp();
                 throw Usage();
         }
 
         for (auto& flag: AllTerminators) if (flag -> given)
         {
-                std::cout << flag -> information << std::endl;
+                std::cerr << flag -> information << std::endl;
                 throw Usage();
         }
 
@@ -184,13 +188,13 @@ std::string MultiMode::ShowUsage()
 
 
         std::stringstream message;
-        message << "\nusage: " << name;
+        message << "usage: " << name;
 
         for (const auto& com: Commands)
                 message << " " << com.first << std::string(max - com.first.length() + 2, ' ')
                         << "...\n" << tab;
 
-        message << "\n " << description << "\n";
+        message << "\n" << description << "\n";
         return message.str();
 }
 

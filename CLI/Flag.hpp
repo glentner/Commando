@@ -47,7 +47,7 @@ inline std::string Flag::GetHelp(const int& width)
 
 
 
-        SSPrint(message, " --", name, spaces, description, " (default: ", value, ").\n\n");
+        SSPrint(message, " --", name, spaces, description, " (default: ", value, ").\n");
         return message.str();
 }
 

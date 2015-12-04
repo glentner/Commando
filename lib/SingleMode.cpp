@@ -127,7 +127,7 @@ void SingleMode::RuntimeConfigure(const int& modifier)
         // if no arguments are provided, throw Usage()
         if (argv.empty())
         {
-                Alert(GetUsage(modifier));
+                std::cerr << GetUsage(modifier) << "\033[1A";
                 throw Usage();
         }
 
@@ -152,14 +152,14 @@ void SingleMode::RuntimeConfigure(const int& modifier)
         // show help statement without considering other arguments
         if (help.given) {
                 // FIXME: WHY YOU DO THIS???? AHHHHH!
-                std::cout << GetHelp(modifier) << std::endl;
+                std::cerr << GetHelp(modifier);
                 throw Usage();
         }
 
         // look for Terminator flags
         for (auto& flag: AllTerminators) if (flag -> given)
         {
-                std::cout << flag -> information << std::endl;
+                std::cerr << flag -> information << std::endl;
                 throw Usage();
         }
 
@@ -365,7 +365,7 @@ std::string SingleMode::GetUsage(const int& modifier)
         std::stringstream message;
 
         if (!modifier)
-                message << "\nusage: ";
+                message << "usage: ";
 
         message << name;
 
@@ -386,7 +386,7 @@ std::string SingleMode::GetUsage(const int& modifier)
                 message << " [-" << arg -> abbrv << " | --" << arg -> name << "]";
 
 
-        message << "\n\n  " << description << "\n\n\n";
+        message << "\n\n" << description << "\n\n";
 
         return message.str();
 }
@@ -413,6 +413,9 @@ std::string SingleMode::GetHelp(const int& modifier)
 
         for (const auto& arg: AllLists)
                 message << arg -> GetHelp(spacing);
+
+        // additional space seperates required/optional arguments
+        message << "\n";
 
         for (const auto& arg: AllSwitches)
                 message << arg -> GetHelp(spacing);

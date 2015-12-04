@@ -37,7 +37,7 @@ inline std::string Default::GetHelp(const int& width)
         std::string spaces(width - name.length(), ' ');
         std::stringstream message;
 
-        SSPrint(message, " ", name, spaces, description, " (default: ", value, ").\n\n");
+        SSPrint(message, " ", name, spaces, description, " (default: ", value, ").\n");
         return message.str();
 }
 
