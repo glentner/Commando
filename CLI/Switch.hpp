@@ -44,7 +44,7 @@ inline std::string Switch::GetHelp(const int& width)
         }
 
 
-        SSPrint(message, " --", name, spaces, description, " (default: ", value, ").\n");
+        SSPrint(message, " --", name, spaces, description, " (default: ", default_value, ").\n");
 
         return message.str();
 }

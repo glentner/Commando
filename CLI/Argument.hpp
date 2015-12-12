@@ -26,13 +26,14 @@ class Argument {
 public:
 
         // attributes of a generic `Argument`
-        std::string name, value, description, abbrv;
+        std::string name, default_value, value, description, abbrv;
         bool given {false};
 
         Argument(){}
         Argument(const std::string& name, const std::string& value,
                 const std::string& description, const std::string& abbrv = "")
                 : name(name)
+		, default_value(value)
                 , value(value)
                 , description(description)
                 , abbrv(abbrv)
