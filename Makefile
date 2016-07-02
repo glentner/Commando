@@ -9,7 +9,7 @@ ifndef CXX
 	export CXX:=g++
 endif
 
-CFlags   := -std=c++11
+CXXFlags := -std=c++11
 archive  := libCLI.a
 inc      := CLI/
 lib      := lib/
@@ -39,11 +39,11 @@ $(archive): $(objects)
 
 
 $(lib)%.o: $(lib)%.cpp $(inc)%.hpp
-	$(CXX) -c $< -o $@ $(IFlags) $(CFlags)
+	$(CXX) -c $< -o $@ $(IFlags) $(CXXFlags)
 
 
 %.exe: %.cpp $(objects)
-	$(CXX) -o $@ $< $(LFlags) $(CFlags)
+	$(CXX) -o $@ $< $(LFlags) $(CXXFlags)
 
 
 .PHONY: clean
