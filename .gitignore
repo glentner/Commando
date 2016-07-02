@@ -1,12 +1,2 @@
-# objects, archives
-*.o
-*.a
-
-# executables
-*.exe
-
-
-# temporary files
-*.swp
-*~
-
+_site/
+.sass-cache/
