@@ -439,23 +439,24 @@ void SingleMode::RunLogicChecks() {
 		throw Error(warning.str());
 	}
 
+	// FIXME: not working properly
 	// check that we haven't defined more than one argument with the same name or abbrv
-	std::vector<std::string> __names(ArgV.size()), __abbrv(ArgV.size());
-	for (const auto& arg: ArgV) {
+	//std::vector<std::string> __names(ArgV.size()), __abbrv(ArgV.size());
+	//for (const auto& arg: ArgV) {
 
-		__names.push_back(arg.second -> name);
-		__abbrv.push_back(arg.second -> abbrv);
-	}
+		//__names.push_back(arg.second -> name);
+		//__abbrv.push_back(arg.second -> abbrv);
+	//}
 
-	int arg_count = 0;
-	arg_count += AllRequired.size();
-	arg_count += AllDefaults.size();
-	arg_count += AllSwitches.size();
-	arg_count += AllFlags.size();
-	arg_count += AllTerminators.size();
+	//int arg_count = 0;
+	//arg_count += AllRequired.size();
+	//arg_count += AllDefaults.size();
+	//arg_count += AllSwitches.size();
+	//arg_count += AllFlags.size();
+	//arg_count += AllTerminators.size();
 
-	if (arg_count != __names.size() or arg_count != __abbrv.size())
-	throw Error("Either a name or abbreviation was repeated in the registered arguments.");
+	//if (arg_count != __names.size() or arg_count != __abbrv.size())
+	//throw Error("Either a name or abbreviation was repeated in the registered arguments.");
 }
 
 } // namespace CLI
