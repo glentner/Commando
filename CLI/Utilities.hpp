@@ -24,36 +24,27 @@ namespace CLI {
 // Simple template defined function dumps argument to stringstream before
 // attempting to assign to the return type. Throws an CLI::Error upon failure.
 template<typename ReturnType, typename InputType>
-inline ReturnType ConvertTo(const InputType& input)
-{
-        std::stringstream buffer;
-        buffer << input;
+inline ReturnType ConvertTo(const InputType& input) {
 
-        ReturnType output;
-        if (!(buffer >> output)) throw Error("ConvertTo() failed.");
+	std::stringstream buffer;
+	buffer << input;
 
-        return output;
+	ReturnType output;
+	if (!(buffer >> output)) throw Error("ConvertTo() failed.");
+
+	return output;
 }
 
 
 // Strip characters from the left to keep only the `basename` of a file path
-inline std::string BaseName(std::string filepath)
-{
-        std::size_t pos = 0;
-        while ( ( pos = filepath.find("/", pos) ) != std::string::npos ){
+inline std::string BaseName(std::string filepath) {
 
-            filepath = filepath.substr(++pos, filepath.length());
-        }
+	std::size_t pos = filepath.find_last_of("/");
+	if (pos != std::string::npos)
+		filepath.erase(0, pos + 1);
 
-        pos = 0;
-        while ( ( pos = filepath.find("\\", pos) ) != std::string::npos ){
-
-            filepath = filepath.substr(++pos, filepath.length());
-        }
-
-        return filepath;
+	return filepath;
 }
-
 
 
 } // namespace CLI
