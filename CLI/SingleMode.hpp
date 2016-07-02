@@ -61,7 +61,7 @@ public:
         virtual int main() = 0;
 
         // runs RunTimeConfigure() followed by the user's main()
-        virtual int Exe(const int& modifier = 0);
+        virtual int Exe(Catch set_catch = true, const int& modifier = 0);
 
 protected:
 
