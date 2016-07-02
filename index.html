@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Commando by glentner</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Commando</h1>
+        <p class="header">Command Line Interface Framework for C++</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/glentner/CLI/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/glentner/CLI/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/glentner/CLI">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/glentner">glentner</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="command-line-interface" class="anchor" href="#command-line-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Command Line Interface</h1>
+
+<p>An object oriented command line argument parser and automatic usage documentation framework.</p>
+
+<p><a href="https://travis-ci.org/glentner/CLI"><img src="https://travis-ci.org/glentner/CLI.svg?branch=master" alt="TravisCI"></a>
+<a href="http://www.gnu.org/copyleft/gpl.html"><img src="http://img.shields.io/badge/license-GPLv3-blue.svg?style=flat" alt="GitHub license"></a></p>
+
+<p>The <strong>CLI</strong> library is a small (and still developing) C++ toolkit for managing the interpretation of
+command line arguments. Further, it automatically constructs the appropriate <em>usage</em> statement
+given the arguments defined in your code.</p>
+
+<h2>
+<a id="tldr" class="anchor" href="#tldr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TL;DR</h2>
+
+<p>Instead of executing the top level portion of your code from <em>main</em>, derive an <em>application class</em>
+from one of either the <strong>CLI::SingleMode</strong> or <strong>CLI::MultiMode</strong> classes.</p>
+
+<p>A <strong>CLI::SingleMode</strong> application is a program that can be run as a single executable function.
+A <strong>CLI::MultiMode</strong> application is a program that has more than one separate subcommands
+with entirely unique argument sets. These subcommands are in fact themselves <strong>CLI::SingleMode</strong>
+objects.</p>
+
+<p>Look at the <em>docs</em> for more details.</p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Clone or extract this repository where ever you so choose. Simply execute <em>make</em> to build the
+library. This creates <em>libCLI.a</em> under <em>lib/</em>. To use the library, simply add the path to <em>CLI/</em>
+to your include path and link to the archive.</p>
+
+<pre><code>CLI_PATH = Path/to/CLI/
+IFlags   = -I$(CLI_PATH) ...
+LFlags   = -L$(CLI_PATH)/lib -lCLI ...
+</code></pre>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>The build process compiles two examples (under the <em>examples/</em> directory), one <strong>CLI::SingleMode</strong>
+and one <strong>CLI::MultiMode</strong> application. <em>hello.exe</em> is a basic "Hello, world!" style program
+that showcases how to create various styles of arguments. The <em>calc.exe</em> program demonstrates
+the creation of separate <strong>CLI::SingleMode</strong> objects (<em>add</em>, <em>subtract</em>, ...) and wrapping
+them inside a <strong>CLI::MultiMode</strong> object.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p><img src="examples/demo.gif" alt="example"></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
