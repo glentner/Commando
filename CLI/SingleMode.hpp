@@ -105,15 +105,15 @@ protected:
         virtual void InterpretLongForm(const int&, const std::string&);
 
 
-        virtual void RunLogicChecks();
+        virtual void RunLogicChecks() const;
 
 
         virtual int SetFlag(const std::string&);
         virtual int SetSwitch(const int&, const std::string&);
 
 
-        virtual std::string GetUsage(const int& modifier = 0);
-        virtual std::string GetHelp(const int& modifier = 0);
+        virtual std::string GetUsage(const int& modifier = 0) const;
+        virtual std::string GetHelp(const int& modifier = 0) const;
 };
 
 
