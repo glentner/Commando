@@ -27,12 +27,12 @@ public:
                 : Argument(name, value, description, abbrv)
                 {}
 
-        virtual std::string GetHelp(const int& width);
+        virtual std::string GetHelp(const int& width) const;
 };
 
 
 // show usage statement for argument
-inline std::string Default::GetHelp(const int& width)
+inline std::string Default::GetHelp(const int& width) const
 {
         std::string spaces(width - name.length(), ' ');
         std::stringstream message;

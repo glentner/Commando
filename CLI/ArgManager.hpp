@@ -38,11 +38,9 @@ public:
         void insert(Argument*);
 
         template<typename ReturnType, typename ArgType = Argument>
-        inline ReturnType get(const std::string&);
+        inline ReturnType get(const std::string&) const;
 
-	std::size_t size() const;
-        ArgMap::iterator begin();
-        ArgMap::iterator end();
+        std::size_t size() const;
         ArgMap::const_iterator begin() const;
         ArgMap::const_iterator end() const;
 };
@@ -58,10 +56,10 @@ inline void ArgManager::insert(Argument *arg)
 
 
 template<typename ReturnType, typename ArgType>
-inline ReturnType ArgManager::get(const std::string& key)
+inline ReturnType ArgManager::get(const std::string& key) const
 {
         try {
-		ReturnType value = *static_cast<ArgType*>(data.at(key));
+                ReturnType value = *static_cast<ArgType*>(data.at(key));
                 return value;
 
         } catch (const std::out_of_range& error) {
@@ -76,22 +74,11 @@ inline ReturnType ArgManager::get(const std::string& key)
 
 inline std::size_t ArgManager::size() const
 {
-	return data.size();
+        return data.size();
 }
 
 
 // Iterators for the argument map
-
-inline typename ArgMap::iterator ArgManager::begin()
-{
-        return data.begin();
-}
-
-inline typename ArgMap::iterator ArgManager::end()
-{
-        return data.end();
-}
-
 inline typename ArgMap::const_iterator ArgManager::begin() const
 {
         return data.begin();

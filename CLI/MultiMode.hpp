@@ -50,8 +50,8 @@ public:
         virtual void RuntimeConfigure();
 
 
-        virtual std::string ShowUsage();
-        virtual std::string ShowHelp();
+        virtual std::string ShowUsage() const;
+        virtual std::string ShowHelp() const;
 
         CLI::Terminator help {"help", "show this message", " ", "h"};
 

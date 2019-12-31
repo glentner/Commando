@@ -33,7 +33,7 @@ public:
                 : Argument(name, description)
                 {}
 
-        virtual std::string GetHelp(const int& width);
+        virtual std::string GetHelp(const int& width) const;
 
         // conversion to other containers
         template<typename ContainerType>
@@ -52,7 +52,7 @@ public:
 
 
 // show usage statement for argument
-inline std::string List::GetHelp(const int& width)
+inline std::string List::GetHelp(const int& width) const
 {
         std::string spaces(width - name.length() - 3, ' ');
 

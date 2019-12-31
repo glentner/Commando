@@ -33,7 +33,7 @@ public:
         Argument(const std::string& name, const std::string& value,
                 const std::string& description, const std::string& abbrv = "")
                 : name(name)
-		, default_value(value)
+                , default_value(value)
                 , value(value)
                 , description(description)
                 , abbrv(abbrv)
@@ -43,13 +43,13 @@ public:
         ValueType make() const;
 
         template<class ValueType>
-        operator ValueType();
+        operator ValueType() const;
 
-	operator const char*();
-	operator std::string();
+        operator const char*() const;
+        operator std::string() const;
 
 
-        virtual std::string GetHelp(const int& spacing) = 0;
+        virtual std::string GetHelp(const int& spacing) const = 0;
 
 protected:
 
@@ -66,34 +66,34 @@ protected:
 template<class ValueType>
 inline ValueType Argument::make() const
 {
-	ValueType return_value;
-	std::stringstream convert(value);
+        ValueType return_value;
+        std::stringstream convert(value);
 
-	if (!(convert >> return_value))
-	throw Error("Unable to convert std::string to ", typeid(ValueType).name(),
-		" for argument `", name, "`.");
+        if (!(convert >> return_value))
+        throw Error("Unable to convert std::string to ", typeid(ValueType).name(),
+                " for argument `", name, "`.");
 
-	return return_value;
+        return return_value;
 }
 
 
 
 template<class ValueType>
-inline Argument::operator ValueType()
+inline Argument::operator ValueType() const
 {
         return make<ValueType>();
 }
 
 
 // specializations allow return of multi-word `value`s.
-inline Argument::operator std::string()
+inline Argument::operator std::string() const
 {
-	return value;
+        return value;
 }
 
-inline Argument::operator const char*()
+inline Argument::operator const char*() const
 {
-	return value.c_str();
+        return value.c_str();
 }
 
 } // namespace CLI
